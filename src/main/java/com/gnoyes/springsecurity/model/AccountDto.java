@@ -22,4 +22,15 @@ public class AccountDto {
         this.address = entity.getAddress();
         this.phoneNumber = entity.getPhoneNumber();
     }
+
+    public void encryptPassword(String encryptedPassword){
+        this.password = encryptedPassword;
+    }
+
+    public void setInfoForTest() {
+        this.userName = "test";
+        this.password = "password";
+        this.address = "Seoul";
+        this.phoneNumber = "01012341234";
+    }
 }

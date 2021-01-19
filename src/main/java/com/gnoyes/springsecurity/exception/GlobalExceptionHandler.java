@@ -1,11 +1,12 @@
 package com.gnoyes.springsecurity.exception;
 
+import com.gnoyes.springsecurity.enums.ErrorCode;
 import com.gnoyes.springsecurity.exception.custom.DuplicateAccountException;
-import com.gnoyes.springsecurity.exception.custom.NotExistAccountException;
 import com.gnoyes.springsecurity.model.errorResponse.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -50,9 +51,9 @@ public class GlobalExceptionHandler {
     /**
      * 존재하지 않는 Username으로 조회 할 경우 발생
      */
-    @ExceptionHandler(NotExistAccountException.class)
-    public ResponseEntity<ErrorResponse> NotExistAccountException(NotExistAccountException e){
-        log.error("NotExistAccountException", e);
+    @ExceptionHandler(UsernameNotFoundException.class)
+    public ResponseEntity<ErrorResponse> UsernameNotFoundException(UsernameNotFoundException e){
+        log.error("UsernameNotFoundException", e);
         final ErrorResponse response = ErrorResponse.of(ErrorCode.USER_NOT_FOUND);
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
