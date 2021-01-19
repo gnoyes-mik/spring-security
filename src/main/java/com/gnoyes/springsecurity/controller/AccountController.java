@@ -13,26 +13,26 @@ public class AccountController {
 
     final private AccountService accountService;
 
-    @GetMapping("/api/test/create")
-    public ResponseEntity<AccountDto> createTestId() throws Exception {
-        AccountDto testAccount = new AccountDto();
-        testAccount.setInfoForTest();
-        return new ResponseEntity<>(accountService.signUpAccount(testAccount), HttpStatus.OK);
-    }
-
-    @GetMapping("/api/user")
+    @GetMapping("/user")
     public ResponseEntity<AccountDto> getAccount(@RequestParam(name = "name") String name) {
         return new ResponseEntity<>(accountService.getAccountByName(name), HttpStatus.OK);
     }
 
-    @PostMapping("/api/user")
+    @PostMapping("/user")
     public ResponseEntity<AccountDto> createAccount(@RequestBody AccountDto signUpReq) throws Exception {
         return new ResponseEntity<>(accountService.signUpAccount(signUpReq), HttpStatus.CREATED);
     }
 
-    @PutMapping("/api/user")
+    @PutMapping("/user")
     public ResponseEntity<AccountDto> updateAccount(@RequestParam(name = "id") long id,
                                                     @RequestBody AccountDto updateReq) {
         return new ResponseEntity<>(accountService.updateAccount(id, updateReq), HttpStatus.OK);
+    }
+
+    @GetMapping("/test/create")
+    public ResponseEntity<AccountDto> createTestId() throws Exception {
+        AccountDto testAccount = new AccountDto();
+        testAccount.setInfoForTest();
+        return new ResponseEntity<>(accountService.signUpAccount(testAccount), HttpStatus.OK);
     }
 }
