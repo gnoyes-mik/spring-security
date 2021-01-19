@@ -4,7 +4,7 @@ Demo project for spring security study
 
 ## Current..
 
-- [Account Create, Read, Update Http API](###Account-CRUD)
+- Account Create, Read, Update Http API
 
 - Connects H2 Database and uses ORM(JPA)
 
@@ -12,5 +12,4 @@ Demo project for spring security study
 
 - Spring Security
 
-
- ### Account CRUD
+    - 　
