@@ -13,17 +13,17 @@ public class AccountController {
 
     final private AccountService accountService;
 
-    @GetMapping
-    public ResponseEntity<AccountDto> getUser(@RequestParam(name = "name") String name) throws Exception {
+    @GetMapping("/api/user")
+    public ResponseEntity<AccountDto> getAccount(@RequestParam(name = "name") String name) throws Exception {
         return new ResponseEntity<>(accountService.getAccountByName(name), HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/api/user")
     public ResponseEntity<AccountDto> createAccount(@RequestBody AccountDto signUpReq) throws Exception {
         return new ResponseEntity<>(accountService.signUpAccount(signUpReq), HttpStatus.CREATED);
     }
 
-    @PutMapping
+    @PutMapping("/api/user")
     public ResponseEntity<AccountDto> updateAccount(@RequestParam(name = "id") long id,
                                                     @RequestBody AccountDto updateReq) throws Exception {
         return new ResponseEntity<>(accountService.updateAccount(id, updateReq), HttpStatus.OK);
