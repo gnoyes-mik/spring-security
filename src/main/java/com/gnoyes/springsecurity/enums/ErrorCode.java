@@ -1,4 +1,4 @@
-package com.gnoyes.springsecurity.exception;
+package com.gnoyes.springsecurity.enums;
 
 import lombok.Getter;
 

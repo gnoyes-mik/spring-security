@@ -1,6 +1,6 @@
 package com.gnoyes.springsecurity.model.errorResponse;
 
-import com.gnoyes.springsecurity.exception.ErrorCode;
+import com.gnoyes.springsecurity.enums.ErrorCode;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
