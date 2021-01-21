@@ -1,6 +1,8 @@
 package com.gnoyes.springsecurity.exception;
 
 import com.gnoyes.springsecurity.enums.ErrorCode;
+import com.gnoyes.springsecurity.exception.custom.AuthenticationDeniedException;
+import com.gnoyes.springsecurity.exception.custom.CustomJwtRuntimeException;
 import com.gnoyes.springsecurity.exception.custom.DuplicateAccountException;
 import com.gnoyes.springsecurity.model.errorResponse.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -67,6 +69,26 @@ public class GlobalExceptionHandler {
         final ErrorResponse response = ErrorResponse.of(ErrorCode.USER_NAME_DUPLICATION);
         return new ResponseEntity<>(response, HttpStatus.valueOf(ErrorCode.USER_NAME_DUPLICATION.getStatus()));
     }
+
+    /**
+     * jwt 토큰이 만료되었거나 권한에 맞지 않는 토큰일 경우 발생
+     */
+    @ExceptionHandler(AuthenticationDeniedException.class)
+    public ResponseEntity<ErrorResponse> AuthenticationDeniedException(AuthenticationDeniedException e){
+        log.error("AuthenticationDeniedException", e);
+        final ErrorResponse response = ErrorResponse.of(ErrorCode.INVALID_JWT_TOKEN);
+        return new ResponseEntity<>(response, HttpStatus.valueOf(ErrorCode.USER_NAME_DUPLICATION.getStatus()));
+    }
+    /**
+     * 유효하지 않거나 잘못된 jwt 토큰일 경우 발생
+     */
+    @ExceptionHandler(CustomJwtRuntimeException.class)
+    public ResponseEntity<ErrorResponse> CustomJwtRuntimeException(CustomJwtRuntimeException e){
+        log.error("CustomJwtRuntimeException", e);
+        final ErrorResponse response = ErrorResponse.of(ErrorCode.AUTHENTICATION_FAILED);
+        return new ResponseEntity<>(response, HttpStatus.valueOf(ErrorCode.USER_NAME_DUPLICATION.getStatus()));
+    }
+
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleException(Exception e){

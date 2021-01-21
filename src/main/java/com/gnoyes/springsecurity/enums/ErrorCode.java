@@ -13,6 +13,8 @@ public enum ErrorCode {
     // Account(User)
     USER_NAME_DUPLICATION(400, "A001", "Username is already exist"),
     USER_NOT_FOUND(404, "A002", "User Not Found"),
+    INVALID_JWT_TOKEN(401, "403", "Invalid JWT token"),
+    AUTHENTICATION_FAILED(401, "A004", "Authentication fail"),
     ;
 
     private final int status;
