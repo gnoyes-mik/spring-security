@@ -13,10 +13,19 @@ public enum ErrorCode {
     // Account(User)
     USER_NAME_DUPLICATION(400, "A001", "Username is already exist"),
     USER_NOT_FOUND(404, "A002", "User Not Found"),
-    USER_LOGIN_FAIL(400, "A403", "Check user name and password"),
-    INVALID_JWT_TOKEN(401, "404", "Invalid JWT token"),
-    AUTHENTICATION_FAILED(403, "A005", "Authentication failed"),
-    TOKEN_GENERATION_FAILED(500, "A006", "Token generation failed"),
+    USER_LOGIN_FAIL(400, "A003", "Check user name and password"),
+
+    AUTHENTICATION_DENIED(403, "A004", "Authentication denied"),
+
+    AUTHENTICATION_FAILED(401, "A005", "Authentication failed"),
+    INVALID_JWT_SIGNATURE(401, "A006", "Invalid JWT signature"),
+    INVALID_JWT_TOKEN(401, "A007", "Invalid JWT token"),
+    EXPIRED_JWT_TOKEN(401, "A008", "Expired JWT token"),
+    ILLEGAL_ARGUMENT(401, "A009", "IllegalArgumentException"),
+    UNSUPPORTED_JWT_TOKEN(401, "A010", "Unsupported JWT token"),
+
+
+//    TOKEN_GENERATION_FAILED(500, "A006", "Token generation failed"),
     ;
 
     private final int status;

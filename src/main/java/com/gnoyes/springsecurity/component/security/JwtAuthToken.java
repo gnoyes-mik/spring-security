@@ -1,6 +1,5 @@
 package com.gnoyes.springsecurity.component.security;
 
-import com.gnoyes.springsecurity.exception.custom.CustomJwtRuntimeException;
 import io.jsonwebtoken.*;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -27,32 +26,6 @@ public class JwtAuthToken {
     JwtAuthToken(String id, String role, Date expiredDate, Key key) {
         this.key = key;
         this.token = createJwtAuthToken(id, role, expiredDate).get();
-    }
-
-    public boolean validate() {
-        return getData() != null;
-    }
-
-    public Claims getData() {
-
-        try {
-            return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();
-        } catch (SecurityException e) {
-            log.info("Invalid JWT signature.");
-            throw new CustomJwtRuntimeException("Invalid JWT signature.");
-        } catch (MalformedJwtException e) {
-            log.info("Invalid JWT token.");
-            throw new CustomJwtRuntimeException("Invalid JWT token.");
-        } catch (ExpiredJwtException e) {
-            log.info("Expired JWT token.");
-            throw new CustomJwtRuntimeException("Expired JWT token.");
-        } catch (UnsupportedJwtException e) {
-            log.info("Unsupported JWT token.");
-            throw new CustomJwtRuntimeException("Unsupported JWT token.");
-        } catch (IllegalArgumentException e) {
-            log.info("JWT token compact of handler are invalid.");
-            throw new CustomJwtRuntimeException("JWT token compact of handler are invalid.");
-        }
     }
 
     private Optional<String> createJwtAuthToken(String id, String role, Date expiredDate) {
