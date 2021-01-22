@@ -1,6 +1,6 @@
 package com.gnoyes.springsecurity.repository;
 
-import com.gnoyes.springsecurity.entity.Account;
+import com.gnoyes.springsecurity.model.entity.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

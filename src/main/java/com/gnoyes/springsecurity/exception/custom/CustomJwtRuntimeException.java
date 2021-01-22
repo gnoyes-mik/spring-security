@@ -6,7 +6,7 @@ public class CustomJwtRuntimeException extends RuntimeException {
 
     private static final long serialVersionUID= -5607975382121189197L;
 
-    public CustomJwtRuntimeException() {
-        super(ErrorCode.AUTHENTICATION_FAILED.getMessage());
+    public CustomJwtRuntimeException(String msg) {
+        super(ErrorCode.AUTHENTICATION_FAILED.getMessage() + " caused by " + msg);
     }
 }

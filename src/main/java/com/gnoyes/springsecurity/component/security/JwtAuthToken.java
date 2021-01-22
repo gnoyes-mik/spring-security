@@ -39,19 +39,19 @@ public class JwtAuthToken {
             return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();
         } catch (SecurityException e) {
             log.info("Invalid JWT signature.");
-            throw new CustomJwtRuntimeException();
+            throw new CustomJwtRuntimeException("Invalid JWT signature.");
         } catch (MalformedJwtException e) {
             log.info("Invalid JWT token.");
-            throw new CustomJwtRuntimeException();
+            throw new CustomJwtRuntimeException("Invalid JWT token.");
         } catch (ExpiredJwtException e) {
             log.info("Expired JWT token.");
-            throw new CustomJwtRuntimeException();
+            throw new CustomJwtRuntimeException("Expired JWT token.");
         } catch (UnsupportedJwtException e) {
             log.info("Unsupported JWT token.");
-            throw new CustomJwtRuntimeException();
+            throw new CustomJwtRuntimeException("Unsupported JWT token.");
         } catch (IllegalArgumentException e) {
             log.info("JWT token compact of handler are invalid.");
-            throw new CustomJwtRuntimeException();
+            throw new CustomJwtRuntimeException("JWT token compact of handler are invalid.");
         }
     }
 

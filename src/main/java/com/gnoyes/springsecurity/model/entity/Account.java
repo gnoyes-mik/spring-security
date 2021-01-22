@@ -1,6 +1,6 @@
-package com.gnoyes.springsecurity.entity;
+package com.gnoyes.springsecurity.model.entity;
 
-import com.gnoyes.springsecurity.model.AccountDto;
+import com.gnoyes.springsecurity.model.dto.AccountDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,10 +28,13 @@ public class Account {
 
     private String phoneNumber;
 
+    private String role;
+
     public void updateAccount(AccountDto dto) {
         this.userName = dto.getUserName();
         this.password = dto.getPassword();
         this.address = dto.getAddress();
         this.phoneNumber = dto.getPhoneNumber();
+        this.role = dto.getRole();
     }
 }
