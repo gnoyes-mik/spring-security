@@ -8,7 +8,7 @@
 - Spring Security + JWT 를 이용한 로그인 서비스 구현
 - Oauth2.0을 이용한 Social provider(Google, Naver, Kakao, Apple 등) 로그인 & 회원가입 서비스 구현
 
-
+<br>
 
 ## 진행 사항
 
@@ -23,7 +23,7 @@
     - Authorization 관련 Exception Handling [[ISSUE-02]](https://github.com/jeff-seyong/spring-security#issue02)
     - 
 
-
+<br>
 
 ## 개념
 
@@ -38,7 +38,7 @@ Spring Security는 Request에 대해서 '인증'과 '인가'를 담당하여 처
 - Filter 방식
   - Application Filters에 Filter를 추가하여 Dispatcher Servlet에 도달하기 전에 처리하는 방식
 
-
+<br>
 
 ### JWT(Json Web Token)
 
@@ -46,9 +46,9 @@ Spring Security는 Request에 대해서 '인증'과 '인가'를 담당하여 처
 
 - 서버와 클라이언트 간 정보를 주고 받을 때 <u>HTTP 리퀘스트 헤더에 JSON 토큰을 넣은 후 서버는 별도의 인증 과정없이 헤더에 포함되어 있는 JWT 정보를 통해 인증</u>
 
-  
+<br>
 
-### Spring Security + JWT 작동 방식
+### Spring Security + JWT 동작 방식
 
 - Applications Filter에 JWT 필터를 추가하여 인증 인가를 처리하는 방식
 
@@ -121,7 +121,7 @@ ServletRequest의 Token이 담겨있는 헤더를 봤을 때,
 
 를 판단하여, 잘못되었다면 Request Attribute에 해당 exception을 설정해준 뒤 JwtAuthenticationEntryPoint에서 처리를 한다
 
-
+<br>
 
 로그인 시 JWT를 발급해주는 과정은 다음과 같다.
 
@@ -192,8 +192,8 @@ public class AccountService implements UserDetailsService {
 
 ```
 
-
-
+<br>
+<br>
 
 
 ## Issue
@@ -243,11 +243,7 @@ public class JwtAuthTokenProvider {
 }
 ```
 
-
-
-
-
-
+<br>
 
 ### Issue02
 
