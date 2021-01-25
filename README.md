@@ -20,7 +20,7 @@
 
     - JWT 토큰 기반 인증 방식을 사용해 API 요청 제한
     - JWT Filter 추가
-    - Authorization 관련 Exception Handling [[ ISSUE-02 ]](###issue02-authorization-관련-exception-handling)
+    - Authorization 관련 Exception Handling [[ ISSUE-02 ]](https://github.com/jeff-seyong/spring-security#issue02-authorization-%EA%B4%80%EB%A0%A8-exception-handling)
     - 
 
 
