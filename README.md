@@ -20,7 +20,7 @@
 
     - JWT 토큰 기반 인증 방식을 사용해 API 요청 제한
     - JWT Filter 추가
-    - Authorization 관련 Exception Handling [[ ISSUE-02 ]](###[ISSUE-02]-Authorization-관련-Exception-Handling-Issue)
+    - Authorization 관련 Exception Handling [[ ISSUE-02 ]](###ISSUE02-Authorization-관련-Exception-Handling-Issue)
     - 
 
 
@@ -52,9 +52,9 @@ Spring Security는 Request에 대해서 '인증'과 '인가'를 담당하여 처
 
 ## 개발 이슈
 
-### [ISSUE-01] JWT Secret Key Length
+### ISSUE-01 JWT Secret Key Length
 
 
 
-### [ISSUE-02] Authorization 관련 Exception Handling Issue
+### ISSUE02 Authorization 관련 Exception Handling Issue
 
