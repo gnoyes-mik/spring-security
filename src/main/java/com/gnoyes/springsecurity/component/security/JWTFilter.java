@@ -2,6 +2,7 @@ package com.gnoyes.springsecurity.component.security;
 
 import com.gnoyes.springsecurity.enums.ErrorCode;
 import io.jsonwebtoken.*;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -22,16 +23,13 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 @Slf4j
+@RequiredArgsConstructor
 public class JWTFilter extends GenericFilterBean {
 
     private static final String AUTHORIZATION_HEADER = "x-auth-token";
     private static final String AUTHORITIES_KEY = "role";
 
-    private JwtAuthTokenProvider jwtAuthTokenProvider;
-
-    JWTFilter(JwtAuthTokenProvider jwtAuthTokenProvider) {
-        this.jwtAuthTokenProvider = jwtAuthTokenProvider;
-    }
+    private final JwtAuthTokenProvider jwtAuthTokenProvider;
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
