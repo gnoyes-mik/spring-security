@@ -21,7 +21,8 @@
     - JWT 토큰 기반 인증 방식을 사용해 API 요청 제한
     - JWT Filter 추가
     - Authorization 관련 Exception Handling [[ISSUE-02]](https://github.com/jeff-seyong/spring-security#issue02)
-    - 
+  
+- Architecture 변경..[URL](https://github.com/jeff-seyong/dev-note/blob/main/spring/spring%20security/Spring%20Security%20Authentication%20Architecture.md)
 
 <br>
 
